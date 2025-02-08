@@ -11,6 +11,9 @@ authors = [
 description = "Image generation plugin using Google's Imagen API"
 requires-python = ">=3.8"
 dependencies = [
-    "google-generativeai",
+    "google-genai",
     "Pillow",
+    "nanoid",
+    "aiohttp",
+    "asyncio"
 ]
