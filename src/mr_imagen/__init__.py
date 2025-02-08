@@ -1,4 +1,4 @@
-from .core import generate_image, download_and_save_image
-from .mod import setup_module
+from .core import generate_image 
+from .mod import *
 
-__all__ = ['generate_image', 'download_and_save_image', 'setup_module']
+__all__ = ['generate_image', 'setup_module']
