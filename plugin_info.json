@@ -1,0 +1,7 @@
+{
+  "name": "mr_imagen",
+  "version": "1.0.0",
+  "description": "Generate images using Google's Imagen API",
+  "services": ["text_to_image"],
+  "commands": ["image"]
+}
