@@ -35,8 +35,9 @@ async def text_to_image(prompt, model_id=None, from_huggingface=None,
         for n in range(1, count+1):
             image_bytes = await generate_image(prompt, w, h, steps, cfg)
             if image_bytes:
+                cwd = os.getcwd()
                 fname = f"/static/imgs/{random_img_fname()}"
-                full_path = f"{script_location}{fname}"
+                full_path = f"{cwd}{fname}"
                 os.makedirs(os.path.dirname(full_path), exist_ok=True)
                 
                 if await save_image(image_bytes, full_path):
@@ -73,8 +74,7 @@ async def image(description="", context=None, w=1024, h=1024, steps=30, cfg=7.5)
     fname = await text_to_image(prompt, context=context, w=w, h=h, steps=steps, cfg=cfg)
     if fname:
         print(f"Image output to file: {fname}")
-        # Strip everything before 'mr_imagen' for relative URL
-        rel_url = "/" + fname[fname.rindex('mr_imagen'):]
+        rel_url = "/" + fname[fname.rindex('/static'):]
         print("rel_url", rel_url)
         await context.insert_image(rel_url)
         return f"Image generated at {rel_url} and inserted into chat UI"
