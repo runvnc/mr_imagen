@@ -16,10 +16,10 @@ def random_img_fname():
 async def select_image_model(context=None, model_id=None, local=False, uncensored=False):
     # Hardcoded model selection for Imagen
     return {
-        'id': 'imagen-3',
-        'name': 'Imagen 3.0',
+        'id': 'imagen-4-ultra',
+        'name': 'Imagen 4.0 Ultra',
         'provider': 'Google',
-        'model_id': 'imagen-3.0-generate-002'
+        'model_id': 'imagen-4.0-ultra-generate-001'
     }
 
 @service()
