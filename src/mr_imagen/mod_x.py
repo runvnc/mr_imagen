@@ -74,11 +74,9 @@ async def image(description="", context=None, w=1024, h=1024, steps=30, cfg=7.5)
     fname = await text_to_image(prompt, context=context, w=w, h=h, steps=steps, cfg=cfg)
     if fname:
         print(f"Image output to file: {fname}")
-        rel_url = fname[fname.rindex('/static'):]
+        rel_url = "/" + fname[fname.rindex('/static'):]
         print("rel_url", rel_url)
         await context.insert_image(rel_url)
-        obj = { "markdown": f"![pic_of_me]({rel_url})" }
-        await context.run_command('json_encoded_md', obj)
         return f"Image generated at {rel_url} and inserted into chat UI"
     else:
         print("Failed to generate image")
