@@ -41,7 +41,7 @@ async def generate_image(prompt, w=1024, h=1024, steps=30, cfg=7.5):
         # can't specify w,h, ignoring
         response = await asyncio.to_thread(
             client.models.generate_images,
-            model='imagen-3.0-generate-002',
+            model= 'imagen-4.0-ultra-generate-001',
             prompt=prompt,
             config=types.GenerateImagesConfig(
                 number_of_images=1
